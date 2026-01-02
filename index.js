@@ -23,7 +23,7 @@ app.use("/api/v1/subscriptions", subscriptionRouter);
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Subscription Tacker API!");
+  res.send("Welcome to Subscription Tracker API!");
 });
 
 const start = async () => {

@@ -92,12 +92,11 @@ const subscriptionSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-subscriptionSchema.pre("save", function (next) {
+subscriptionSchema.pre("save", function () {
   // Set status to expired if renewalDate is already in the past
   if (this.renewalDate && this.renewalDate < new Date()) {
     this.status = "expired";
   }
-  next();
 });
 
 const Subscription = mongoose.model("Subscription", subscriptionSchema);
